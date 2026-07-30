@@ -1,6 +1,7 @@
 # @todoforai/embed — "DO it AI"
 
-An embeddable button that turns setup instructions into an action.
+Turn setup instructions into actions. Instead of asking users to configure
+things by hand, hand the steps to their AI.
 
 Every product has steps a user must do by hand to get started — create an
 account, paste an API key, connect a CMS, flip a DNS record, install a tool.
