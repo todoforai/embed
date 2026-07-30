@@ -43,7 +43,7 @@ function applyVisibility(el: HTMLElement, visibleWhen: MountOptions['visibleWhen
 export function mount(container: HTMLElement, opts: MountOptions): () => void {
   let current: Status = { loggedIn: 'unknown', extension: 'unknown' };
   const el = createButton({
-    label: opts.label ?? 'DO it AI',
+    label: opts.label ?? 'AI, do it',
     theme: opts.theme ?? 'dark',
     onClick: makeOnClick(opts, () => current),
   });

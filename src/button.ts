@@ -42,7 +42,7 @@ export function makeMark(margin = true): HTMLElement {
   return span;
 }
 
-/** Shadow-DOM "DO it AI" button. Pure view; label/theme/vars are the owner's, the mark is ours. */
+/** Shadow-DOM "AI, do it" button. Pure view; label/theme/vars are the owner's, the mark is ours. */
 export function createButton(opts: { label: string; theme: 'dark' | 'light'; onClick: () => void }): HTMLElement {
   const host = document.createElement('todoforai-button');
   const root = host.attachShadow({ mode: 'closed' });

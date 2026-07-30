@@ -1,4 +1,4 @@
-# @todoforai/embed — "DO it AI"
+# @todoforai/embed — "AI, do it"
 
 Turn setup instructions into actions. Instead of asking users to configure
 things by hand, hand the steps to their AI.
@@ -25,7 +25,7 @@ Live docs & demos: **https://todofor.ai/embed/**
 |---|---|
 | **Invariant** | Click → the visitor's own composer, prefilled — **never auto-submitted**. Enforced at todofor.ai. |
 | **Required by default** | The flame mark on the trigger — auto-injected even on custom buttons (`data-todo-no-mark` opts out). |
-| **Recommended** | Label mentions AI ("DO it AI", "Fix it with AI"). |
+| **Recommended** | Label mentions AI ("AI, do it", "Fix it with AI"). |
 | **Yours** | Colors, radius, font, padding, wording, or your entire own element. |
 
 
