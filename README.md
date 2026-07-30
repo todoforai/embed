@@ -1,8 +1,20 @@
 # @todoforai/embed — "DO it AI"
 
-The embeddable button. A site owner writes a task; visitors click and their own
-AI agent at [todofor.ai](https://todofor.ai) does it. ~5KB, zero dependencies,
-MIT.
+An embeddable button that turns setup instructions into an action.
+
+Every product has steps a user must do by hand to get started — create an
+account, paste an API key, connect a CMS, flip a DNS record, install a tool.
+You normally write these as a docs page and hope the user follows them.
+
+Drop this button next to those steps instead. The site owner writes the task
+once; a visitor clicks, and **their own AI agent at
+[todofor.ai](https://todofor.ai) does the configuring for them** — running the
+CLI, filling the forms, and, when the steps live elsewhere, **navigating off
+your site to finish the job** (a dashboard, a provider console, their own
+machine via the browser extension). The visitor watches and approves; nothing
+runs without them.
+
+So: your onboarding docs become a button. ~5KB, zero dependencies, MIT.
 
 Live docs & demos: **https://todofor.ai/embed/**
 
@@ -15,7 +27,25 @@ Live docs & demos: **https://todofor.ai/embed/**
 | **Recommended** | Label mentions AI ("DO it AI", "Fix it with AI"). |
 | **Yours** | Colors, radius, font, padding, wording, or your entire own element. |
 
+
+## In practice
+
+A monitoring SaaS documents onboarding as:
+
+> 1. Sign up at f5bot.com
+> 2. Add your product keywords
+> 3. Connect the Slack webhook so alerts land in your channel
+
+Wrapped as a button, the visitor clicks once and their agent does all three —
+signing up on the provider's site, entering the keywords, and wiring the
+webhook — instead of the visitor tab-hopping through the steps. The task can be
+written inline (`data-todo-prompt`) or saved as a reusable template you edit
+later without touching your page.
+
 ## Usage (site owner)
+
+`data-todo-prompt` is literally the setup steps, in plain language — the same
+thing you'd put in a "Getting started" doc. Or point at a saved template.
 
 ```html
 <!-- write the todo inline: -->
