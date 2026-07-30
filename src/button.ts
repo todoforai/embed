@@ -19,6 +19,10 @@ button {
 }
 button:hover { filter: brightness(1.1); }
 button:active { transform: scale(.98); }
+.mark { display: inline-flex; line-height: 0; border-radius: 5px; }
+/* Custom --todoai-bg can swallow the orange flame — sit it on a small chip.
+   Negative margin cancels the padding so layout doesn't shift. */
+button.chip .mark { background: var(--todoai-mark-bg, #fff); padding: 3px; margin: -3px; }
 button.dark { --_bg: #16161a; --_color: #fff; border-color: var(--todoai-border, #333); }
 button.light { --_bg: #fff; --_color: #16161a; border-color: var(--todoai-border, #ddd); }
 `;
@@ -47,9 +51,14 @@ export function createButton(opts: { label: string; theme: 'dark' | 'light'; onC
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = opts.theme;
-  btn.innerHTML = `${LOGO}<span></span>`;
+  btn.innerHTML = `<span class="mark">${LOGO}</span><span></span>`;
   (btn.lastElementChild as HTMLElement).textContent = opts.label;
   btn.addEventListener('click', opts.onClick);
   root.append(style, btn);
+  // After the host is in the document: if the owner overrode the background,
+  // the flame may not contrast with it — back the mark with a chip.
+  requestAnimationFrame(() => {
+    if (getComputedStyle(host).getPropertyValue('--todoai-bg').trim()) btn.classList.add('chip');
+  });
   return host;
 }
