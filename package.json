@@ -1,0 +1,18 @@
+{
+  "name": "@todoforai/embed",
+  "version": "0.1.0",
+  "description": "DO it AI — embeddable button: visitors click, their AI agent does the task you wrote",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/embed.js",
+  "repository": "github:todoforai/embed",
+  "homepage": "https://todofor.ai/embed/",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.6.0"
+  }
+}

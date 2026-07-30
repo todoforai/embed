@@ -1,0 +1,19 @@
+<!doctype html>
+<!-- Loaded as a hidden cross-origin iframe by embed.js on third-party sites.
+     Runs on the todofor.ai origin so it can ask the API for the first-party
+     session, then postMessages { type, loggedIn } to the embedding page.
+     Reports only a boolean-ish flag — never user data — to arbitrary parents. -->
+<meta charset="utf-8">
+<script>
+(async () => {
+  const send = (loggedIn) => parent.postMessage({ type: 'todoforai:status', loggedIn }, '*');
+  try {
+    // Partitioned-storage browsers won't attach our cookies here; say 'unknown', not 'no'.
+    if (document.hasStorageAccess && !(await document.hasStorageAccess())) return send('unknown');
+    const res = await fetch('https://api.todofor.ai/api/auth/get-session', { credentials: 'include' });
+    const data = res.ok ? await res.json() : null;
+    const u = data && data.user;
+    send(u && !u.isAnonymous ? 'yes' : 'no');
+  } catch { send('unknown'); }
+})();
+</script>
